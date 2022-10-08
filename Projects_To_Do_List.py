@@ -2,7 +2,13 @@ def Projects_To_Do_List():
     Running = True
     while Running:
         import pickle
-        Projects = pickle.load(open("Projects_To_Do_List/Projects.dat","rb"))
+        try:
+            Projects = pickle.load(open("Projects.dat","rb"))
+        
+        except:
+            new_file = open("Projects.dat", "wb")
+            new_file.close()
+            Projects = ""
         print("Welcome to projects to do list!")
         while True:
             choice = input("Enter 'a' for adding a project, 'r' for removing a project, 'v' for vewing all the stored projects and 'e' for exiting: ").lower()
@@ -45,7 +51,7 @@ def Projects_To_Do_List():
                 print("Invalid input! Please try again!")
         if choice == 'e':
             break
-        pickle.dump(Projects,open("Projects_To_Do_List/Projects.dat","wb"))
+        pickle.dump(Projects,open("Projects.dat","wb"))
         while True:
             Again=input("Do you want to edit again? (y/n)").lower()
             if Again == 'y':
