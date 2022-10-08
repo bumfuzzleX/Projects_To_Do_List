@@ -19,3 +19,6 @@ You can do one of the three:
 1. Add a project
 2. Remove a project
 3. View all the projects
+
+# License
+[MIT LICENSE](LICENSE)
